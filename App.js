@@ -1,16 +1,15 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import WelcomeScreen from './screens/WelcomeScreen';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './screens/Login';
 
-const Stack = createStackNavigator();
-
-export default function App() {
+function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+      </Routes>
+    </Router>
   );
 }
+
+export default App;
